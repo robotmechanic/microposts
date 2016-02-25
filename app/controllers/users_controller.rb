@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   
-  def show
+  before_action :set_user, :authenticate!, only: [:edit, :update] 
+   def show
     @user = User.find(params[:id])
   end
-  
   
   def new
     @user = User.new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_profile)
       # 保存に成功した場合はトップページへリダイレクト
-      redirect_to root_path , notice: 'プロフィールを編集しました'
+      redirect_to @user , notice: 'プロフィールを編集しました'
     else
       # 保存に失敗した場合は編集画面へ戻す
       render 'edit', flash: { danger: "error" }
@@ -31,10 +31,6 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
-    if @user != current_user
-      redirect_to current_user, flash: { danger: "不正なアクセス" + " Logged in as: " + current_user.name}
-    end
   end
   
   private
