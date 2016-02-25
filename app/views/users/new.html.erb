@@ -3,25 +3,36 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
       
-      <%= form_for(@user) do |user| %>
+      <%= form_for(@user) do |f| %>
       
-      <%= render 'shared/error_messages', object: user.object %>
+      <%= render 'shared/error_messages', object: f.object %>
       
-      <%= user.label :name %>
-      <%= user.text_field :name %>
+      <div class="form-group">
+        <%= f.label :name, "Name" %>
+        <%= f.text_field :name, class: "form-control" %>
+    </div>
       
-      <%= user.label :email %>
-      <%= user.text_field :email %>
+     <div class="form-group">
+        <%= f.label :email, "Email" %>
+        <%= f.text_field :email, class: "form-control" %>
+    </div>
+    
+     <div class="form-group">
+        <%= f.label :password, "Password" %>
+        <%= f.password_field :password, class: "form-control" %>
+    </div>
       
-      <%= user.label :password %>
-      <%= user.password_field :password %>
       
-      <%= user.label :password_confirmation, "Confirmation" %>
-      <%= user.password_field :password_confirmation %>
-      
-      <%= user.submit "Create my account", class: "btn btn-large btn-primary" %>
-      
-      <% end %>
-      
+    <div class="form-group">
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
+    
+    <br>
+    <div class="form-group">
+          <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    </div>
+    <% end %>
+    
     </div>
 </div>
