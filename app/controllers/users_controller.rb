@@ -34,6 +34,17 @@ class UsersController < ApplicationController
   def edit
   end
   
+  def followers
+     @user = User.find(params[:id])
+     @followers = @user.follower_users
+  end
+  
+  def following
+     @user = User.find(params[:id])
+     @following = @user.following_users
+  end
+  
+  
   private
 
   # get parameters for sign up
