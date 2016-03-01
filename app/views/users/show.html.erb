@@ -6,10 +6,13 @@
         <%= @user.name %>
       </h1>
       
-      <h2>
+      <p>
           <%= @user.profile %><br>
           <%= @user.city %><br>
-      </h2>
+      </p>
+      <p>    <%= link_to 'Followers', controller: "users", action: "followers", id: @user %>      </p>
+      <p>    <%= link_to 'Following',  controller: "users", action: "following", id: @user %>      </p>
+    
     </section>
   </aside>
   

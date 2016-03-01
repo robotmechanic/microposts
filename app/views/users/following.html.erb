@@ -1,5 +1,5 @@
 <h3>Following</h3>
 
-<% @user.following_users.each do |f| %>
+<% @following.each do |f| %>
     <%= link_to f.name, f %><br>
 <% end %>
