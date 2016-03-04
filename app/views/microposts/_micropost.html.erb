@@ -1,7 +1,27 @@
+<style>
+    img {
+      border-radius: 12px;
+    }
+    
+    p {
+        font-size: 80%;
+    }
+</style>
+
 <li id="micropost-<%= micropost.id %>">
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-  <span class="content"><%= micropost.content %></span>
+  <div class="content"><%= micropost.content %>
+   <% @thumbnail = nil %>
+   <% @uri = nil %>
+   <% link = URI.extract(micropost.content) %>
+   <% thumbnail_for micropost.content %>
+   <% if @thumbnail %>
+   <p><%= @thumbnail.title %></p>
+   <p><%= @thumbnail.description %></p>
+   <a href=<%= @link[0] %> target='_blank'><img src=<%= @thumbnail.images.first.src.to_s %> alt=<%= @thumbnail.title %> style="width:200px;height:200px;"></a>
+   <% end %>
+   </div>
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
     <% if current_user == micropost.user %>
