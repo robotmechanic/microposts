@@ -19,7 +19,7 @@
    <% if @thumbnail %>
    <p><%= @thumbnail.title %></p>
    <p><%= @thumbnail.description %></p>
-   <a href=<%= @link[0] %> target='_blank'><img src=<%= @thumbnail.images.first.src.to_s %> alt=<%= @thumbnail.title %> style="width:200px;height:200px;"></a>
+   <a href=<%= link[0] %> target='_blank'><img src=<%= @thumbnail.images.first.src.to_s %> alt=<%= @thumbnail.title %> style="width:200px;height:200px;"></a>
    <% end %>
    </div>
   <span class="timestamp">
