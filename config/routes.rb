@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       get :following
       get :follower
     end
+    #collection do
+    #  post 'hoge'
+    #  get 'hige'
+    #end  
   end
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
